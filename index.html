@@ -243,6 +243,10 @@
 </div>
 
 <script>
+document.body.insertAdjacentHTML(
+  "afterbegin",
+  `<div id="dbgTop" style="position:fixed;top:8px;right:8px;z-index:99999;background:#22c55e;color:#000;padding:6px 10px;border-radius:10px;font:12px system-ui;">JS TOP ✅</div>`
+);
 document.body.insertAdjacentHTML("afterbegin", `<div style="position:fixed;top:8px;right:8px;z-index:99999;background:#22c55e;color:#000;padding:6px 10px;border-radius:10px;font:12px/1.2 system-ui;">JS TOP ✅</div>`);  
 document.title = "JS LOADED ✅";
 window.onerror = function (msg, src, line, col) {
