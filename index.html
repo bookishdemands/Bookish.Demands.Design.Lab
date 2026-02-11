@@ -243,18 +243,11 @@
 </div>
 
 <script>
-document.title = "JS RUNNING ✅";  
-document.body.insertAdjacentHTML(
-  "afterbegin",
-  `<div id="dbgTop" style="position:fixed;top:8px;right:8px;z-index:99999;background:#22c55e;color:#000;padding:6px 10px;border-radius:10px;font:12px system-ui;">JS TOP ✅</div>`
-);
-document.body.insertAdjacentHTML("afterbegin", `<div style="position:fixed;top:8px;right:8px;z-index:99999;background:#22c55e;color:#000;padding:6px 10px;border-radius:10px;font:12px/1.2 system-ui;">JS TOP ✅</div>`);  
-document.title = "JS LOADED ✅";
-window.onerror = function (msg, src, line, col) {
-  alert("JS error: " + msg + " @ line " + line + ":" + col);
-};
-  // ===== OPTIONS (edit freely) =====
-  const OPTIONS = {
+  
+document.title = "JS RUNNING ✅";
+
+// ===== OPTIONS (edit freely) =====
+const OPTIONS = {
     platformMode: ["ImageFX","Midjourney","Stable Diffusion","ChatGPT","Microsoft Designer","Bing Image Creator","Grok"],
     privateBrand: ["None","Luxury house vibe (private)","Streetwear label vibe (private)","Minimal designer vibe (private)","90s supermodel vibe (private)","Custom (private)"],
     characterType: ["fictional human character","digital avatar character","fantasy character","paranormal character","stylized illustration character"],
