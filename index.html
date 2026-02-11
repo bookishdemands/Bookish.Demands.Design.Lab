@@ -772,42 +772,58 @@
   }
 
   init();
-// ===== SMART CLEAR ALL =====
-(function(){
+// ===== CLEAR ALL (NO RESTORE) =====
+(function () {
   const clearBtn = document.getElementById("btnClear");
   if (!clearBtn) return;
 
-  clearBtn.addEventListener("click", function(){
-
-    // Reset ALL selects to first option
-    document.querySelectorAll("select").forEach(function(sel){
-      sel.selectedIndex = 0;
-    });
-
-    // Reset checkboxes
-    document.querySelectorAll('input[type="checkbox"]').forEach(function(cb){
-      cb.checked = false;
-    });
-
-    // Clear text inputs
-    document.querySelectorAll('input[type="text"], input:not([type])').forEach(function(inp){
-      inp.value = "";
-    });
-
-    // Clear textareas
-    document.querySelectorAll("textarea").forEach(function(t){
-      t.value = "";
-    });
-
-    // Clear local storage (if your app uses it)
+  clearBtn.addEventListener("click", () => {
+    // 1) Stop any autosave from restoring old selections
     localStorage.removeItem("prompt_studio_autosave_v1");
     localStorage.removeItem("prompt_studio_autosave");
 
-    // Force UI refresh by re-running init safely
-    if (typeof init === "function") {
-      init();
-    }
+    // 2) Reset dropdowns (and trigger change so the UI updates)
+    document.querySelectorAll("select").forEach((sel) => {
+      sel.selectedIndex = 0;
+      sel.dispatchEvent(new Event("change", { bubbles: true }));
+    });
 
+    // 3) Reset all inputs
+    document.querySelectorAll("input").forEach((inp) => {
+      const t = (inp.type || "").toLowerCase();
+
+      if (t === "file" || t === "range") return;
+
+      if (t === "checkbox") {
+        inp.checked = false;
+        return;
+      }
+
+      inp.value = "";
+      inp.dispatchEvent(new Event("input", { bubbles: true }));
+      inp.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+
+    // 4) Reset textareas
+    document.querySelectorAll("textarea").forEach((ta) => {
+      ta.value = "";
+      ta.dispatchEvent(new Event("input", { bubbles: true }));
+      ta.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+
+    // 5) Restore your default seed (optional)
+    const seed = document.getElementById("seed");
+    if (seed) seed.value = "4458271930";
+
+    // 6) Hide warnings if present
+    const accWarn = document.getElementById("accWarn");
+    const propWarn = document.getElementById("propWarn");
+    if (accWarn) accWarn.style.display = "none";
+    if (propWarn) propWarn.style.display = "none";
+
+    // 7) Clear output box if present
+    const out = document.getElementById("output");
+    if (out) out.value = "";
   });
 })();
 </script>
