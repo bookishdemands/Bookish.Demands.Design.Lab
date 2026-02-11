@@ -856,7 +856,13 @@ window.onerror = function (msg, src, line, col) {
     $("output").value = buildPrompt();
   }
 
-  init();
+  document.addEventListener("DOMContentLoaded", () => {
+  try {
+    init();
+  } catch (e) {
+    alert("Init error: " + (e?.message || e));
+  }
+});
 </script>
 </body>
 </html>
