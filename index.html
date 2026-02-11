@@ -776,7 +776,44 @@
     refreshPresetList();
     $("output").value = buildPrompt();
   }
+  // ===== CLEAR ALL (safe) =====
+(function () {
+  const clearBtn = document.getElementById("btnClear");
+  if (!clearBtn) return;
 
+  clearBtn.addEventListener("click", () => {
+
+    // 1) Clear selects (dropdowns)
+    document.querySelectorAll("select").forEach(sel => {
+      sel.value = ""; // works with Patch 2 placeholder
+      sel.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+
+    // 2) Clear checkboxes (chips)
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      cb.checked = false;
+      cb.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+
+    // 3) Clear text inputs (skip file/range)
+    document.querySelectorAll("input").forEach(inp => {
+      const t = (inp.type || "").toLowerCase();
+      if (t === "checkbox" || t === "file" || t === "range") return;
+      inp.value = "";
+      inp.dispatchEvent(new Event("input", { bubbles: true }));
+      inp.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+
+    // 4) Clear textareas (keep output if you want)
+    document.querySelectorAll("textarea").forEach(ta => {
+      if (ta.id === "output") return; // remove this line if you want output cleared too
+      ta.value = "";
+      ta.dispatchEvent(new Event("input", { bubbles: true }));
+      ta.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+
+  });
+})();
   document.addEventListener("DOMContentLoaded", init);
 </script>
 </body>
