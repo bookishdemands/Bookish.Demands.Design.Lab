@@ -649,12 +649,13 @@
     $("btnCopy").addEventListener("click", ()=> copyText($("output").value || buildPrompt()));
 
     $("btnSave").addEventListener("click", ()=>{
-    $("btnClear").addEventListener("click", () => {
   // 1) If you added autosave earlier, clear it so it doesn’t “restore” your old picks
   localStorage.removeItem("prompt_studio_autosave_v1");
   localStorage.removeItem("prompt_studio_autosave_v1"); // safe duplicate
   localStorage.removeItem("prompt_studio_autosave");    // in case you used this key
+  });
 
+    $("btnClear").addEventListener("click", () => {    
   // 2) Reset all dropdowns
   document.querySelectorAll("select").forEach(sel => {
     sel.selectedIndex = 0;
