@@ -650,14 +650,43 @@
 
     $("btnSave").addEventListener("click", ()=>{
       $("btnClear").addEventListener("click", () => {
+  // Reset all selects to first option
   document.querySelectorAll("select").forEach(s => s.selectedIndex = 0);
-  document.querySelectorAll("input[type=text]").forEach(i => i.value = "");
+
+  // Clear all inputs safely (including ones without type="text")
+  document.querySelectorAll("input").forEach(i => {
+    const t = (i.getAttribute("type") || "").toLowerCase();
+
+    // Skip buttons, file input, and range slider
+    if (t === "file" || t === "range" || t === "button" || t === "submit") return;
+
+    // Uncheck checkboxes
+    if (t === "checkbox") { i.checked = false; return; }
+
+    // Clear text-like inputs (including inputs with no type attribute)
+    i.value = "";
+  });
+
+  // Clear textareas
   document.querySelectorAll("textarea").forEach(t => t.value = "");
-  document.querySelectorAll("input[type=checkbox]").forEach(c => c.checked = false);
+
+  // Restore defaults you want to keep
   $("verbosity").value = 2;
   setVerbosityLabel();
+
+  // Optional: restore default seed
+  $("seed").value = "4458271930";
+
+  // Hide brand fields (since brandToggle gets unchecked)
   toggleBrandFields();
+
+  // Hide any max-selection warnings
+  const accWarn = $("accWarn"); if (accWarn) accWarn.style.display = "none";
+  const propWarn = $("propWarn"); if (propWarn) propWarn.style.display = "none";
+
+  // Rebuild output
   $("output").value = buildPrompt();
+});
 });
       const name = v("presetName") || prompt("Preset name?");
       if(!name) return;
