@@ -649,6 +649,16 @@
     $("btnCopy").addEventListener("click", ()=> copyText($("output").value || buildPrompt()));
 
     $("btnSave").addEventListener("click", ()=>{
+      $("btnClear").addEventListener("click", () => {
+  document.querySelectorAll("select").forEach(s => s.selectedIndex = 0);
+  document.querySelectorAll("input[type=text]").forEach(i => i.value = "");
+  document.querySelectorAll("textarea").forEach(t => t.value = "");
+  document.querySelectorAll("input[type=checkbox]").forEach(c => c.checked = false);
+  $("verbosity").value = 2;
+  setVerbosityLabel();
+  toggleBrandFields();
+  $("output").value = buildPrompt();
+});
       const name = v("presetName") || prompt("Preset name?");
       if(!name) return;
       const presets = loadPresets();
