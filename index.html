@@ -781,6 +781,7 @@
     // 1) Stop any autosave from restoring old selections
     localStorage.removeItem("prompt_studio_autosave_v1");
     localStorage.removeItem("prompt_studio_autosave");
+    localStorage.removeItem("prompt_studio_presets_v1");
 
     // 2) Reset dropdowns (and trigger change so the UI updates)
     document.querySelectorAll("select").forEach((sel) => {
