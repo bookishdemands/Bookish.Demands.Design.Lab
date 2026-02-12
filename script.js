@@ -333,8 +333,8 @@
     const mode = s.platformMode;
     const vb = s.verbosity;
     const characterStyle = s.characterStyle;
-    const gender = s.gender;
-    const ageGroup = s.ageGroup;
+    const gender = v("gender");
+    const ageGroup = v("ageGroup");
 
     const accessories = (s.accessoriesMulti || []);
     const props = (s.propsMulti || []);
