@@ -4,6 +4,39 @@
     privateBrand: ["None","Luxury house vibe (private)","Streetwear label vibe (private)","Minimal designer vibe (private)","90s supermodel vibe (private)","Custom (private)"],
     characterType: ["fictional human character","digital avatar character","fantasy character","paranormal character","stylized illustration character"],
     stylePreset: ["hyper-realistic lifestyle photo","cinematic editorial photo","glossy 3D stylized render","manhwa-inspired illustration","clean minimalist studio photo","street editorial photo","soft dreamy photo","high-contrast fashion photo","warm cozy candid photo","nighttime city cinematic photo"],
+    characterStyle: [
+
+  // Realistic
+  "Realistic Photo (Lifestyle)",
+  "Realistic Editorial (High-End)",
+  "Realistic Beauty (Gloss + Detail)",
+  "Realistic Street Style (Urban)",
+
+  // Stylized / Illustration
+  "Stylized Cartoon (Painterly Pop)",
+  "Stylized Cartoon (Clean Cel)",
+  "Manhwa / Webtoon (Glossy Ink)",
+  "Anime (Modern Clean)",
+
+  // Chibi family
+  "Chibi (Classic Cute)",
+  "Chibi (Exaggerated Big-Head)",
+  "Chibi (Super-Deformed / Tiny Body)",
+  "Glossy 3D Chibi (Soft Shine)",
+  "Ultra-Glossy 3D Chibi (High Shine)",
+
+  // 3D / CGI
+  "3D CGI Realistic",
+  "Pixar-Style 3D",
+  "Bratz-Inspired 3D",
+  "Toy-Like Render (Controlled Gloss)",
+
+  // Specialty
+  "Dark Fantasy Stylized",
+  "Soft Glam Illustration",
+  "Luxury Influencer Render"
+
+],
     bodyType: ["slim","curvy","plus-size","athletic","petite","tall statuesque"],
     complexion: ["deep brown","rich brown","medium brown","light brown","tan","olive","golden brown","porcelain"],
     undertone: ["warm undertone","neutral undertone","cool undertone","golden undertone","olive undertone"],
