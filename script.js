@@ -26,9 +26,7 @@
 
   stylePreset: [...],
   characterStyle: [
-    stylePreset: ["hyper-realistic lifestyle photo","cinematic editorial photo","glossy 3D stylized render","manhwa-inspired illustration","clean minimalist studio photo","street editorial photo","soft dreamy photo","high-contrast fashion photo","warm cozy candid photo","nighttime city cinematic photo"],
-    characterStyle: [
-
+    
   // Realistic
   "Realistic Photo (Lifestyle)",
   "Realistic Editorial (High-End)",
