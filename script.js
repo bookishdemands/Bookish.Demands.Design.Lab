@@ -317,12 +317,13 @@
     const s = captureState();
     const mode = s.platformMode;
     const vb = s.verbosity;
+    const characterStyle = s.characterStyle;
 
     const accessories = (s.accessoriesMulti || []);
     const props = (s.propsMulti || []);
     const safeBrandLine = s.brandToggle ? "Style reference: luxury/designer-inspired (no logos)." : "";
 
-    const subject = `Create an image of a ${s.characterType} in a ${s.stylePreset}.`;
+    const subject = `Create an image of a ${s.characterType} in a ${s.stylePreset}${characterStyle ? `, ${characterStyle} style` : ""}.`;
     const appearance = `Body: ${s.bodyType}. Complexion: ${s.complexion} with a ${s.undertone}. Expression: ${s.expression}. Pose: ${s.pose}.`;
     const hair = `Hair: ${s.hairTexture} texture, ${s.hairStyle}, ${s.hairLength}, ${s.hairPart}, ${s.hairFinish}; accessories: ${s.hairAccessories}.`;
     const beauty = `Makeup: ${s.baseFinish}, eyes: ${s.eyeMakeup}, lips: ${s.lipStyle}. Lashes: ${s.lashStyle}, ${s.lashLength}, ${s.lashCurl}, ${s.lashDensity}. Nails: ${s.nailType}, ${s.nailLength}, ${s.nailShape}, ${s.nailColor}, ${s.nailFinish}, art: ${s.nailArt}, accent: ${s.nailAccent}.`;
