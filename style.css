@@ -36,18 +36,36 @@
     }
     textarea{ min-height:220px; resize:vertical; }
     .btns{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
-    button{
-      border:0; border-radius:12px; padding:10px 12px; cursor:pointer;
-      background:var(--text); color:var(--bg); font-weight:800;
-    }
-    button.secondary{ background:#19192a; color:var(--text); border:1px solid #2f2f4a; font-weight:650; }
-    .pill{ display:inline-block; padding:3px 8px; border:1px solid #2f2f4a; border-radius:999px; font-size:12px; color:var(--muted); }
-    .tiny{ font-size:11px; color:rgba(242,242,246,.65); margin-top:6px; line-height:1.35; }
-    .hr{ height:1px; background:var(--line); margin:12px 0; }
-    .slider{ display:flex; gap:10px; align-items:center; }
-    input[type="range"]{ width:100%; }
-    .chips{ display:flex; flex-wrap:wrap; gap:8px; }
-    .chip{ display:flex; align-items:center; gap:8px; padding:8px 10px; background:var(--chip); border:1px solid #2f2f4a; border-radius:999px; }
-    .chip input{ width:16px; height:16px; }
-    .warn{ color:#ffcf6e; font-size:11px; margin-top:6px; }
+    button {
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-weight: 600;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+/* Primary */
+#btnGenerate {
+  background: #ff00b0;
+  color: #000;
+  font-weight: 700;
+}
+
+#btnGenerate:hover {
+  background: #ff33c4;
+}
+
+/* Secondary */
+button.secondary {
+  background: #1a1a1a;
+  color: #fff;
+  border: 1px solid #333;
+}
+
+button.secondary:hover {
+  border-color: #ff00b0;
+  color: #ff00b0;
+}
   </style>
