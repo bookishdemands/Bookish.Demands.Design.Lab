@@ -395,6 +395,23 @@ if (seed) {
     seedLine = `Seed: ${seed}`;
   }
 }
+   let backgroundLine = s.background ? `Background: ${s.background}.` : "";
+
+if (s.background === "Transparent Background (PNG)" ||
+    s.background === "Transparent Background (Sticker PNG Clean Cut)") {
+
+  backgroundLine = "Background: transparent PNG, isolated subject, no background, no shadow, clean alpha channel cutout.";
+}
+
+if (s.background === "Solid White Background") {
+
+  backgroundLine = "Background: pure seamless white (#FFFFFF), studio-lit, centered composition.";
+}
+
+if (s.background === "Isolated on White (Product Style)") {
+
+  backgroundLine = "Background: pure white seamless backdrop, product photography style, soft diffused shadow.";
+}
     const accessories = (s.accessoriesMulti || []);
     const props = (s.propsMulti || []);
     const safeBrandLine = s.brandToggle ? "Style reference: luxury/designer-inspired (no logos)." : "";
@@ -427,6 +444,7 @@ if (seed) {
   beauty,
   outfit,
   scene,
+  backgroundLine,   
   extras,
   seedLine,
   safeBrandLine,
@@ -439,6 +457,7 @@ if (seed) {
   beauty,
   outfit,
   scene,
+  backgroundLine,
   extras,
   seedLine,
   safeBrandLine,
