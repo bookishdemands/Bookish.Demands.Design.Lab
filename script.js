@@ -365,8 +365,30 @@
 
     // verbosity
     const minimal = [subject, appearance, scene, safeBrandLine, constraints].filter(Boolean);
-    const standard = [subject, appearance, hair, beauty, outfit, scene, extras, safeBrandLine, constraints].filter(Boolean);
-    const ultra = [subject, appearance, hair, beauty, outfit, scene, extras, safeBrandLine, "Rendering: natural proportions, clean hands, realistic skin texture, cinematic depth of field.", constraints].filter(Boolean);
+    const standard = [
+  subject,
+  appearance,
+  hair,
+  beauty,
+  outfit,
+  scene,
+  extras,
+  seed ? `Seed: ${seed}` : "",
+  safeBrandLine,
+  constraints
+].filter(Boolean);
+    const ultra = [
+  subject,
+  appearance,
+  hair,
+  beauty,
+  outfit,
+  scene,
+  extras,
+  seed ? `Seed: ${seed}` : "",
+  safeBrandLine,
+  constraints
+].filter(Boolean);
 
     const base = vb===1 ? minimal : vb===2 ? standard : ultra;
 
