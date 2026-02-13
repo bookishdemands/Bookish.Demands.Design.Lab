@@ -340,6 +340,25 @@
     if (useRandomSeed) {
      seed = Math.floor(Math.random() * 9999999999);
 }
+    let seedLine = "";
+
+if (seed) {
+  if (mode === "Midjourney") {
+    seedLine = `--seed ${seed}`;
+  } 
+  else if (mode === "Stable Diffusion" || mode === "SDXL") {
+    seedLine = `Seed: ${seed}`;
+  } 
+  else if (mode === "Leonardo AI") {
+    seedLine = `Seed: ${seed}`;
+  } 
+  else if (mode === "DALL·E" || mode === "ChatGPT") {
+    seedLine = `Seed: ${seed}`;
+  } 
+  else if (mode === "Microsoft Designer" || mode === "Bing AI") {
+    seedLine = `Seed: ${seed}`;
+  }
+}
     const accessories = (s.accessoriesMulti || []);
     const props = (s.propsMulti || []);
     const safeBrandLine = s.brandToggle ? "Style reference: luxury/designer-inspired (no logos)." : "";
@@ -373,7 +392,7 @@
   outfit,
   scene,
   extras,
-  seed ? `Seed: ${seed}` : "",
+  seedLine,
   safeBrandLine,
   constraints
 ].filter(Boolean);
@@ -385,7 +404,7 @@
   outfit,
   scene,
   extras,
-  seed ? `Seed: ${seed}` : "",
+  seedLine,
   safeBrandLine,
   constraints
 ].filter(Boolean);
