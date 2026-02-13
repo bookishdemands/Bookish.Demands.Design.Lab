@@ -1,6 +1,6 @@
  // ========= OPTIONS (edit freely) =========
   const OPTIONS = {
-  platformMode: ["ImageFX", "Midjourney", "Stable Diffusion", "ChatGPT"],
+  platformMode: ["ImageFX", "Midjourney", "Stable Diffusion", "ChatGPT", "Microsoft Designer", "Bing AI"],
   privateBrand: ["None"],
 
   characterType: [
