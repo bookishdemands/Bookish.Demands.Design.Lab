@@ -99,7 +99,20 @@
     colorScheme: ["neutral tones (black, brown, cream, gold accents)","monochrome black + silver","warm neutrals with soft beige highlights","dark moody palette with subtle neon accents","cream + camel + gold"],
 
     styleInfluence: ["original styling","designer-inspired silhouettes (no logos)","luxury-inspired styling (no logos)","streetwear editorial-inspired (no logos)"],
-
+    background: [
+  "Realistic Environment",
+  "Luxury Interior",
+  "Urban Setting",
+  "Nature / Outdoor",
+  "Studio (Neutral Gray)",
+  "Studio (Warm Beige)",
+  "Solid White Background",
+  "Solid Black Background",
+  "Soft Gradient Background",
+  "Isolated on White (Product Style)",
+  "Transparent Background (PNG)",
+  "Transparent Background (Sticker PNG Clean Cut)"
+],
     theme: ["cozy urban reading vibe","nighttime city aesthetic","luxe café ambiance","minimal modern apartment vibe","rooftop skyline vibe","library corner vibe","studio backdrop vibe"],
     setting: ["urban luxe café with bookshelves and plush seating","modern city apartment book nook with warm lamp lighting","rooftop lounge with skyline bokeh","stylish library corner with marble and wood accents","minimal studio set, clean backdrop"],
     lighting: ["soft natural window light","warm ambient lamp lighting","moody cinematic lighting","neon city glow at night","golden hour sunlight","soft studio lighting"],
