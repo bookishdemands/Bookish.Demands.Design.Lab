@@ -104,7 +104,6 @@
     setting: ["urban luxe café with bookshelves and plush seating","modern city apartment book nook with warm lamp lighting","rooftop lounge with skyline bokeh","stylish library corner with marble and wood accents","minimal studio set, clean backdrop"],
     lighting: ["soft natural window light","warm ambient lamp lighting","moody cinematic lighting","neon city glow at night","golden hour sunlight","soft studio lighting"],
     view: [
-  view: [
   "Eye-Level View",
   "Bird’s-Eye View (Top-Down)",
   "Overhead View (Straight Down)",
