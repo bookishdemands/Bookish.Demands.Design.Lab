@@ -398,22 +398,29 @@ if (seed) {
     seedLine = `Seed: ${seed}`;
   }
 }
-   let backgroundLine = s.background ? `Background: ${s.background}.` : "";
+   const bg = s.background;
+const removeShadows = !!s.removeShadows;
 
-if (s.background === "Transparent Background (PNG)" ||
-    s.background === "Transparent Background (Sticker PNG Clean Cut)") {
+let backgroundLine = bg ? `Background: ${bg}.` : "";
 
-  backgroundLine = "Background: transparent PNG, isolated subject, no background, no shadow, clean alpha channel cutout.";
+// Transparent background behavior (kills environment words)
+if (isTransparentBg(bg)) {
+  backgroundLine = "Background: transparent PNG, isolated subject, no environment, no floor, no horizon line.";
 }
 
-if (s.background === "Solid White Background") {
-
-  backgroundLine = "Background: pure seamless white (#FFFFFF), studio-lit, centered composition.";
+// Product-style behavior (force centered composition)
+if (bg === "Isolated on White (Product Style)") {
+  backgroundLine = "Background: pure white seamless (#FFFFFF), product photography style, centered composition, clean cutout edges.";
 }
 
-if (s.background === "Isolated on White (Product Style)") {
-
-  backgroundLine = "Background: pure white seamless backdrop, product photography style, soft diffused shadow.";
+// Shadow removal rules
+let shadowLine = "";
+if (removeShadows) {
+  shadowLine = "Shadows: none (no cast shadow, no contact shadow).";
+}
+// If transparent, we already locked the toggle ON, but this keeps prompt explicit:
+if (isTransparentBg(bg)) {
+  shadowLine = "Shadows: none (no cast shadow, no contact shadow).";
 }
     const accessories = (s.accessoriesMulti || []);
     const props = (s.propsMulti || []);
@@ -728,16 +735,21 @@ function enforceBackgroundRules() {
       $("customOutfit").value = "";
     });
 
-    $("rndScene").addEventListener("click", ()=>{
-      randomize([
-        ["setting", OPTIONS.setting],
-        ["lighting", OPTIONS.lighting],
-        ["view", OPTIONS.view],
-        ["angle", OPTIONS.angle],
-        ["lens", OPTIONS.lens],
-        ["theme", OPTIONS.theme],
-      ]);
-      randomizeChips("propChips", OPTIONS.multiProps, 3);
+    $("rndScene")?.addEventListener("click", () => {
+  randomize([
+    ["setting", OPTIONS.setting],
+    ["lighting", OPTIONS.lighting],
+    ["view", OPTIONS.view],
+    ["angle", OPTIONS.angle],
+    ["lens", OPTIONS.lens],
+    ["background", OPTIONS.background],
+    ["theme", OPTIONS.theme],
+  ]);
+  enforceBackgroundRules();
+});
+     $("background")?.addEventListener("change", enforceBackgroundRules);
+window.addEventListener("load", enforceBackgroundRules);
+     randomizeChips("propChips", OPTIONS.multiProps, 3);
       $("extraScene").value = "";
     });
 
