@@ -628,6 +628,7 @@ return formatLinesForPlatform(mode, baseLines);
   }
   // ========= Init =========
   function init(){
+   alert("init ran");
     // fill selects
     Object.entries(OPTIONS).forEach(([k,arr])=>{
       if(k.startsWith("multi")) return;
